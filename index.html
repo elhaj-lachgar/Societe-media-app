@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css.map">
+    
+</head>
+<body>
+    <!-- start project -->
+    <!-- part of html and styling  -->
+    <!-- update post modale  -->
+    <div class="modal fade" id="updatePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeLogin"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">title</label>
+                <input type="text" class="form-control" id="updatePostTitle">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">content</label>
+                <textarea class="form-control" id="updatePostContent"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">image</label>
+                <input type="file" class="form-control" id="updatePostImg">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary"  id="updatePostbtn" >update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- modale of login -->
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeLogin"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">username</label>
+                  <input type="text" class="form-control" id="loginUserame">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">password</label>
+                  <input type="password" class="form-control" id="loginPassword">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"  id="loginButton" >Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!--modale of register  -->
+
+    <div class="modal fade" id="Register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeLogin"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">name</label>
+                  <input type="text" class="form-control" id="Registername">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">username</label>
+                    <input type="text" class="form-control" id="RegisterUsername">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">email</label>
+                    <input type="email" class="form-control" id="Registeremail">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">password</label>
+                  <input type="password" class="form-control" id="Registerpassword">
+                </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">profile_image</label>
+                    <input type="file" class="form-control" id="Registerimage">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"  id="Registerbtn"  >Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- modale of create post -->
+
+    <div class="modal fade" id="createPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeLogin"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <div class="mb-3">
+                    <label for="message-text" class="col-form-label">image</label>
+                    <input type="file" class="form-control" id="createpostimage">
+                  </div>
+              
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">title</label>
+                  <input type="text" class="form-control" id="createposttitle">
+                </div>
+                <div class="mb-3 ">
+                    <label for="recipient-name" class="col-form-label" style="display: block;">content</label>
+                    <textarea style="resize: none; height: 75px; width: 100%;" id="createpostbody"></textarea>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"  id="createpostbtn"  >Add Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <!-- start nav bar  -->
+    <div class="container ">
+        <div class="d-flex justify-content-center" style="width: 100%;">
+            <div class="col-9">
+                <nav class="navbar navbar-expand-lg bg-light shadow rounded" style="width: 100%; padding: 15px;">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse position-relative" id="navbarNav" >
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#" onclick="handluserProfile()"> Profile</a>
+                        </li>
+                      </ul>
+                      <div class="d-flex justify-content-end" style="width: 100%;" id="logingroupe">
+                        <button class="btn btn-outline-primary me-2"data-bs-toggle="modal" data-bs-target="#login" data-bs-whatever="@mdo">Login</button>
+                        <buttonn class="btn btn-outline-success"data-bs-toggle="modal" data-bs-target="#Register" data-bs-whatever="@mdo">Register</buttonn>
+                      </div>
+                      <div class="d-flex justify-content-end" style="width: 100%;display: none !important; " id="logoutgroupe">
+                        <buttonn class="btn btn-outline-danger">logout</buttonn>
+                      </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+     <div id="add-post" style="position: fixed; top : 80% ; right : 3%; width: 75px ;height: 75px; display: none; ">
+        <button class="btn btn-success" style=" width: 100% ; height: 100%; border-radius: 50%; font-size: 40px; padding: 0px; background-color: #6610f2 !important;" data-bs-toggle="modal" data-bs-target="#createPost" data-bs-whatever="@mdo">+</button>
+     </div>
+    <!-- end nav bar -->
+    <!-- start  posts -->
+    <div class="continer">
+        <div class="d-flex justify-content-center" style="width: 100%;">
+            <div class="col-7">
+                <div class="posts mt-5" id="containerPosts">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end posts -->
+
+    <!-- part of script  -->    
+    <script src="./main.js"></script>
+    <script> 
+        document.getElementById("createpostbtn").onclick = () =>{
+            const url = `${BaseUrl}posts`
+            const title = document.getElementById('createposttitle').value;
+            const image = document.getElementById('createpostimage').files[0];
+            const body = document.getElementById('createpostbody').value;
+
+            let container = new FormData();
+            container.append("title",title);
+            container.append('image',image);
+            container.append('body',body);
+
+            let header = {
+
+                "authorization" : `Bearer ${window.localStorage.getItem('token')}`
+            }
+            axios.post(url,container , { headers : header })
+            .then((response)=>{
+              console.log("hi")
+                // location.reload(true)
+            })
+            .catch ((err)=>{
+                alert('unsuccess');
+            })
+        }
+        document.getElementById("Registerbtn").onclick = ()=>{
+            let url = `${BaseUrl}register`;
+            // getting input values of register
+            const username = document.getElementById('RegisterUsername').value;
+            const name = document.getElementById('Registername').value;
+            const email = document.getElementById('Registeremail').value;
+            const password = document.getElementById('Registerpassword').value;
+            const profile_image = document.getElementById('Registerimage').files[0];
+            // appending data in formdata
+            let container = new FormData();
+            container.append("username",username);
+            container.append('name',name);
+            container.append('email',email);
+            container.append('password',password);
+            container.append('profile_image',profile_image);
+            // send requiste and get response
+            axios.post(url,container)
+            .then((res)=>{
+                window.localStorage.setItem("token" ,res.data.token);
+                window.localStorage.setItem("user",JSON.stringify(res.data.user));
+                handlBtn(editBtns)
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+
+
+        }
+
+            document.getElementById("logoutgroupe").onclick = () => {
+                window.localStorage.clear()
+                alert("log out succes")
+                handlBtn()
+            }        
+//  global variable
+       
+        const loginModal = document.getElementById("login");
+         getPosts()
+         function getPosts() {
+            const url = `${BaseUrl}posts`
+            axios.get(url)
+            .then((response)=>{
+                const posts = response.data.data;
+                console.log(posts);
+                const user = JSON.parse(window.localStorage.getItem("user"));
+                
+                for ( let  post of posts){
+                  if( user != null && user.id == post.author.id ){
+                       setUpPosts(post.author.id,post.id,post.author.username ,
+                                  post.author.profile_image , 
+                                  post.image ,
+                                  post.title , 
+                                  post.body , 
+                                  post.comments_count ,
+                                  true ,
+                                  true ,false );
+                    }
+                      
+                   else{
+                    setUpPosts( post.author.id ,post.id,post.author.username , post.author.profile_image , post.image , post.title , post.body , post.comments_count ,true ,false ,false);
+                   }
+                }
+                // const editBtns = document.querySelectorAll(".posts.mt-5 .card.mt-5.shadow .divEdit");
+                // if( window.localStorage.getItem('token') == null ){
+                //   editBtns.forEach((ele)=>{
+                //     ele.style.display = "none";
+                //   })
+                // }
+                // handlBtn()
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+         }
+
+        // Posts variable
+
+        // function to create posts
+
+        // login variable
+
+        window.onload = () =>{
+            handlBtn()
+        }
+
+        document.getElementById('updatePostbtn').onclick = ()=>{
+        //   prevContent = contentPost;
+        //             prevImg  = postImage;
+        //             = titlePost;
+           
+          const url = `${BaseUrl}posts/${idPost}`
+          const title = document.getElementById('updatePostTitle').value;
+
+          const content = document.getElementById('updatePostContent').value;
+
+          const image = document.getElementById('updatePostImg').files[0];
+           
+          console.log(title);
+          console.log(content);
+          console.log(image);
+          let capsel = new FormData();
+          capsel.append('title' , title);
+          capsel.append('image',image);
+          capsel.append('body' , content);
+          capsel.append('_method','put');
+          // Authorization
+          let head = {
+            'authorization' : `Bearer ${window.localStorage.getItem('token')}`,
+          }
+        
+          axios.post( url , capsel, { headers : head })
+          .then((res)=>{
+            alert('update success')
+            window.location.reload(true);
+          })
+          .catch((err)=>{
+            alert('upadte not success')
+          })
+        }
+        function handluserProfile (){
+           const token = window.localStorage.getItem('token');
+           if( token != null){
+             const user = JSON.parse( window.localStorage.getItem('user'));
+             const id = user.id ;
+             window.location = `profile.html?userid=${id}`
+           }
+           else{
+             alert("you are not definded you have to loging")
+           }
+        }
+
+    </script>
+
+</body>
+    <!-- import script  -->
+    <script src="./js/all.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js.map"></script>
+</html>
